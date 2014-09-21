@@ -15,11 +15,12 @@ function discoverPorts (opts, callback) {
   var ports = [];
   var search = [];
 
-  if (!opts.firefox && !opts.b2g) {
-    search = ['firefox', 'b2g'];
+  if (!opts.firefox && !opts.b2g && !opts.adb) {
+    search = ['firefox', 'b2g', 'adb'];
   }
   if (opts.firefox) search.push('firefox');
   if (opts.b2g) search.push('b2g');
+  if (opts.adb) search.push('adb');
 
   if (opts.release && opts.release.length > 0) opts.detailed = true;
 
@@ -33,7 +34,7 @@ function discoverPorts (opts, callback) {
     var lines = output.split('\n');
     lines.forEach(function(line) {
       var matches = regex.exec(line);
-      if (matches && +matches[3] != 2828) {
+      if (matches && +matches[3] != 2828 && +matches[3] != 5037) {
         ports.push({type: matches[1], port: +matches[3], pid: +matches[2]});
       }
     });
@@ -47,7 +48,7 @@ function discoverPorts (opts, callback) {
     var lines = output.split('\n');
     lines.forEach(function(line) {
       var matches = regex.exec(line);
-      if (matches && +matches[1] != 2828) {
+      if (matches && +matches[1] != 2828 && +matches[1] != 5037) {
         ports.push({type: matches[3], port: +matches[1], pid: +matches[2],});
       }
     });

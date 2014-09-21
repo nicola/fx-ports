@@ -13,7 +13,7 @@ var table = new Table({
   style: { 'padding-left': 0, 'padding-right': 4 }
 });
 
-var types = {b2g: "Firefox OS", firefox:"Firefox Desktop"};
+var types = {b2g: "Firefox OS Simulator", firefox:"Firefox Desktop", adb: "Firefox OS Device"};
 
 var opts = require("nomnom")
   .option('version', {
@@ -26,6 +26,10 @@ var opts = require("nomnom")
     }
   })
   .option('b2g', {
+    flag: true,
+    help: 'Show Boot2Gecko (FirefoxOS) listening ports only'
+  })
+  .option('adb', {
     flag: true,
     help: 'Show Boot2Gecko (FirefoxOS) listening ports only'
   })
