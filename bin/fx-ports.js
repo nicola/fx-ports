@@ -29,10 +29,6 @@ var opts = require("nomnom")
     flag: true,
     help: 'Show Boot2Gecko (FirefoxOS) listening ports only'
   })
-  .option('adb', {
-    flag: true,
-    help: 'Show Boot2Gecko (FirefoxOS) listening ports only'
-  })
   .option('release', {
     list: true,
     help: 'Release of FirefoxOS to filter',

@@ -19,8 +19,10 @@ function discoverPorts (opts, callback) {
     search = ['firefox', 'b2g', 'adb'];
   }
   if (opts.firefox) search.push('firefox');
-  if (opts.b2g) search.push('b2g');
-  if (opts.adb) search.push('adb');
+  if (opts.b2g) {
+    search.push('b2g');
+    search.push('adb');
+  }
 
   if (opts.release && opts.release.length > 0) opts.detailed = true;
 
