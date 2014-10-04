@@ -13,7 +13,7 @@ var table = new Table({
   style: { 'padding-left': 0, 'padding-right': 4 }
 });
 
-var types = {b2g: "Firefox OS", firefox:"Firefox Desktop"};
+var types = {b2g: "Firefox OS Simulator", firefox:"Firefox Desktop", adb: "Firefox OS Device"};
 
 var opts = require("nomnom")
   .option('version', {
